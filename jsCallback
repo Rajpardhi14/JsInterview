@@ -1,0 +1,38 @@
+ Callback fn 
+// callback fn is fn which is passed as an argument to another fn and it excute after the complition of specific task.
+why we use
+// Callback functions are often used to handle asynchronous operations, such as making an API request, reading a file, or handling user input. 
+They allow you to control the flow of your code and execute certain actions only when a particular operation is complete.
+
+
+import React, { useEffect } from "react";
+
+const First = () => {
+  const fetchData = async (url, info) => {
+    try {
+      const response = await fetch(url);
+
+
+      const data = await response.json();
+      info(null, data); // Pass the data to the info function
+    } catch (error) {
+      info(error, null); // Pass the error to the info function
+    }
+  };
+
+  const infoDetails = (error, data) => {
+    if (error) {
+      console.log("Task Failed", error);
+    } else {
+      console.log("Task Done", data);
+    }
+  };
+
+  useEffect(() => {
+    fetchData("https://jsonplaceholder.typicode.com/users", infoDetails);
+  }, []);
+
+  return <div>CallBack Function</div>;
+};
+
+export default First;
