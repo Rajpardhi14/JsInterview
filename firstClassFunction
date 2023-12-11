@@ -1,0 +1,34 @@
+// what is first class function
+ first class function are treated like any other varibale or values means:
+ 1) we can pass function as an argument to another function
+ 2)we can  assign to variable
+ 3) we can  return a function to another function
+
+
+// assign as a variable
+ const greet=function(name){
+       return `Hello ,${name}`
+      }
+ console.log(greet("Aniket"))
+
+ // pass as an argument
+
+ const greet=function(name){
+  return name
+}
+
+const mydetails=(address,func)=>{
+  return `hello my name is ${func} and i am from ${address}`
+}
+
+console.log(mydetails("nagpur",greet("aniket")))
+
+// return a function to another function
+function multiplier(arg1) {
+  return function mysecondvalyues(arg2) {
+    return arg1 * arg2;
+  }
+}
+const double = multiplier(2);
+console.log(double(7));
+ 
