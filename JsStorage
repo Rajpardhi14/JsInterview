@@ -1,1 +1,75 @@
+Q1:- What is Web Storage
+ans:- Web storage is an API that provides a mechanism by which browsers can store key/value pairs locally within the user's browser.
+ The web storage provides two mechanisms for storing data on the client.
+
+ a)Local storage: It stores data for current origin with no expiration date.
+ b)Session storage: It stores data for one session and the data is lost when the browser tab is closed.
+
+ A)explanation of local storage:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <h3 id="first"></h3>
+    <button onclick="myStorageInfo()">Add</button>
+    <button onclick="RemoveInfo()">Remove</button>
+   <script>
+    let storeData=document.getElementById("first")
+   let myvalues={name:"aniket",age:25}
+
+
+// function for setitem
+  function myStorageInfo(){
+// it is used to store the data to localstorage
+
+when we store any object to localstorage we need to convert to stringfy
+    localStorage.setItem("userinfo",JSON.stringify(myvalues))
+
+
+//
+when we retrive the data means show the data we use getitem and need 
+to parse to show we can show output in object
+   const storeInfo= JSON.parse(localStorage.getItem("userinfo"))
+   const {name,age}=storeInfo
+ 
+   storeData.textContent=`Name:${name} Address:${age}`
+  }
+
+  function RemoveInfo(){
+    localStorage.removeItem("userinfo")
+    storeData.textContent=""
+  }
+
+
+B):- Session Storage 
+the method is same as for localstorage but the
+saved data remove after the browser tab is closed.
+
+Q3:-Cookies:A cookie is a piece of data that is stored on your computer to be accessed by 
+your browser. Cookies are saved as key/value pairs. 
+For example, you can create a cookie named username as below,
+
+Why do you need a Cookie
+Cookies are used to remember information about the user profile(such as username). It basically involves two steps,
+
+When a user visits a web page, the user profile can be stored in a cookie.
+Next time the user visits the page, the cookie remembers the user profile.
+
+// for create cookies
+document.cookie = "username=John; expires=Sat, 8 Jun 2019 12:00:00 UTC";
+
+// for give page about to store
+document.cookie = "username=John; path=/services";
+// for delet cookies
+document.cookie =
+  "username=; expires=Fri, 07 Jun 2019 00:00:00 UTC; path=/;";
+   </script> 
+</body>
+</html>
+
 
