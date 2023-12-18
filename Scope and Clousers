@@ -1,0 +1,31 @@
+Q1:- what is lexical Scope in js ?
+Ans:-
+
+
+
+
+
+
+
+
+Q2:- What is Clouser
+clousers are created when function is define within another function  allow  inner function have the access of outer fn variable
+and parameters.
+
+ function myOuterFunction(ar1) {
+            let outerValue = "My outer values";
+            console.log("my arg1 is",ar1)
+            
+            function myInnerFunction(arg) {
+                console.log(outerValue, arg);
+            }
+            
+            // Return the inner function without invoking it
+            return myInnerFunction;
+        }
+
+        // Get the returned inner function
+        const myValues = myOuterFunction("my parametrs");//my arg1 is my parametrs
+
+        // Invoke the inner function with arguments
+        myValues("Parameter1");//My outer values Parameter1
