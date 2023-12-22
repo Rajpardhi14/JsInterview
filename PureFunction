@@ -1,1 +1,29 @@
+Pure Function Javascipt:
+pure fn is a function that given the same input will 
+always return the same output and has no side effect .
+It doesn't depend on external variables or modify any external state.
 
+// Pure function
+function add(a, b) {
+  return a + b;
+}
+
+// Example usage
+const result = add(3, 5); // Output: 8
+
+Impure Functions:
+
+An impure function is a function that may have side effects or produce different results for the same input.
+Side effects can include modifying external variables, changing the state of an object, or performing I/O operations.
+
+Example of an impure function:
+// Impure function
+let total = 0;
+
+function addToTotal(value) {
+  total += value;
+  console.log(`Total is now: ${total}`);
+}
+
+// Example usage
+addToTotal(5); // Output: Total is now: 5
